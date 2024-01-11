@@ -36,6 +36,7 @@ public class InterfazInicio extends javax.swing.JFrame {
         iniciar_sesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         iniciar_sesion.setForeground(new java.awt.Color(255, 255, 255));
         iniciar_sesion.setText("INICIAR SESIÓN");
+        iniciar_sesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iniciar_sesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iniciar_sesionActionPerformed(evt);
@@ -47,6 +48,7 @@ public class InterfazInicio extends javax.swing.JFrame {
         admin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         admin.setForeground(new java.awt.Color(255, 255, 255));
         admin.setText("ADMINISTRADOR");
+        admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         admin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 adminMousePressed(evt);

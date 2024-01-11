@@ -3,6 +3,7 @@ package interfaces;
 import buscaminas.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.function.Consumer;
 import javax.swing.*;
 
@@ -19,8 +20,11 @@ public class InterfazPartida extends javax.swing.JFrame {
     JButton[][] casillas;
     
     Partida partida;
-    Marcador marcador = new Marcador(0, 0);
+    Marcador marcador;
+    Movimiento movimiento;
+    Almacen_Partidas almacen_Partidas;
   
+    private static int contadorPartidas = 1;
     int contador = 0;
     
     public InterfazPartida() {
@@ -69,6 +73,8 @@ public class InterfazPartida extends javax.swing.JFrame {
                     if (marcador.getPuntos_J1() == 26) {
                         JOptionPane.showMessageDialog(null, "¡ENHORABUENA!, " + jugador1.getText() + " has ganado la partida.");
                         
+                        partida.info_partida(marcador);
+                        
                         interfazJugador = new InterfazJugador();
                         interfazJugador.setVisible(true);
                         interfazJugador.insertarJugador(jugador_actual.getNombre(), jugador_actual.getPassword());
@@ -85,6 +91,8 @@ public class InterfazPartida extends javax.swing.JFrame {
                     
                     if (marcador.getPuntos_J2() == 26) {
                         JOptionPane.showMessageDialog(null, "¡ENHORABUENA!, " + jugador2.getText() + " has ganado la partida.");
+                        
+                        partida.info_partida(marcador);
                         
                         interfazJugador = new InterfazJugador();
                         interfazJugador.setVisible(true);

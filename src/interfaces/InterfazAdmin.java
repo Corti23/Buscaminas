@@ -58,6 +58,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         alta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         alta.setForeground(new java.awt.Color(255, 255, 255));
         alta.setText("DAR DE ALTA");
+        alta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         alta.setFocusPainted(false);
         alta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -75,6 +76,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         altaFichero.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         altaFichero.setForeground(new java.awt.Color(255, 255, 255));
         altaFichero.setText("DAR DE ALTA CON FICHERO");
+        altaFichero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         altaFichero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 altaFicheroMousePressed(evt);
@@ -91,6 +93,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         baja.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         baja.setForeground(new java.awt.Color(255, 255, 255));
         baja.setText("DAR DE BAJA");
+        baja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         baja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bajaActionPerformed(evt);
@@ -102,6 +105,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         info_partidas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         info_partidas.setForeground(new java.awt.Color(255, 255, 255));
         info_partidas.setText("INFO PARTIDAS");
+        info_partidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         info_partidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 info_partidasActionPerformed(evt);
@@ -113,6 +117,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         cerrar_sesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cerrar_sesion.setForeground(new java.awt.Color(255, 255, 255));
         cerrar_sesion.setText("CERRAR SESIÓN");
+        cerrar_sesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cerrar_sesionMouseEntered(evt);
@@ -156,7 +161,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         password = JOptionPane.showInputDialog("Introduce la contraseña del jugador:");
 
         try {            
-            if (!almacen_Usuarios.existe(new Jugador(nombre, password))) {
+            if (!almacen_Usuarios.existe(new Jugador(nombre, password)) && nombre != null && password != null) {
                 almacen_Usuarios.alta(new Jugador(nombre, password));
                 JOptionPane.showMessageDialog(null, "El jugador se ha registrado con éxito.");
             } else {
@@ -180,7 +185,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         Jugador jugador = new Jugador(nombre, "");
         
         try {            
-            if (almacen_Usuarios.existe(jugador)) {                
+            if (almacen_Usuarios.existe(jugador) && nombre != null) {                
                 almacen_Usuarios.baja(jugador);
                 JOptionPane.showMessageDialog(null, "El jugador se ha eliminado con éxito.");
             } else {

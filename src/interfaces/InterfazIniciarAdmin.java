@@ -78,7 +78,7 @@ public class InterfazIniciarAdmin extends javax.swing.JFrame {
         panel.add(password_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 230, 30));
 
         separador1.setForeground(new java.awt.Color(0, 0, 0));
-        panel.add(separador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 230, 40));
+        panel.add(separador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 230, 20));
 
         jlabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.jpg"))); // NOI18N
         panel.add(jlabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 190, 250));

@@ -7,6 +7,8 @@ public class InterfazJugador extends javax.swing.JFrame {
     public static InterfazPartida interfazPartida;
     public static InterfazElegirRival interfazElegirRival;
     public static InterfazInicio interfazInicio;
+    public static InterfazPerfil interfazPerfil;
+    public static InterfazClasificacion interfazClasificacion;
     
     private String nombre;
     private String password;
@@ -49,6 +51,7 @@ public class InterfazJugador extends javax.swing.JFrame {
         iniciar_partida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         iniciar_partida.setForeground(new java.awt.Color(255, 255, 255));
         iniciar_partida.setText("INICIAR PARTIDA");
+        iniciar_partida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iniciar_partida.setFocusPainted(false);
         iniciar_partida.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -66,6 +69,7 @@ public class InterfazJugador extends javax.swing.JFrame {
         perfil.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         perfil.setForeground(new java.awt.Color(255, 255, 255));
         perfil.setText("PERFIL");
+        perfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         perfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 perfilActionPerformed(evt);
@@ -77,6 +81,7 @@ public class InterfazJugador extends javax.swing.JFrame {
         clasificacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         clasificacion.setForeground(new java.awt.Color(255, 255, 255));
         clasificacion.setText("CLASIFICACIÓN");
+        clasificacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clasificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clasificacionActionPerformed(evt);
@@ -88,6 +93,7 @@ public class InterfazJugador extends javax.swing.JFrame {
         cerrar_sesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cerrar_sesion.setForeground(new java.awt.Color(255, 255, 255));
         cerrar_sesion.setText("CERRAR SESIÓN");
+        cerrar_sesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cerrar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cerrar_sesionMouseEntered(evt);
@@ -129,11 +135,19 @@ public class InterfazJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_iniciar_partidaActionPerformed
 
     private void perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilActionPerformed
+        interfazPerfil = new InterfazPerfil();
+        interfazPerfil.setVisible(true);
+        interfazPerfil.insertarJugador1(nombre, password);
         
+        this.setVisible(false);
     }//GEN-LAST:event_perfilActionPerformed
 
     private void clasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clasificacionActionPerformed
+        interfazClasificacion = new InterfazClasificacion();
+        interfazClasificacion.setVisible(true);
+        interfazClasificacion.insertarJugador1(nombre, password);
         
+        this.setVisible(false);
     }//GEN-LAST:event_clasificacionActionPerformed
 
     private void cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrar_sesionActionPerformed

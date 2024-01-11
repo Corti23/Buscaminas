@@ -165,10 +165,6 @@ public class InterfazElegirRival extends javax.swing.JFrame {
     }//GEN-LAST:event_jugarMouseExited
 
     private void jugarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jugarMousePressed
-//        interfazPartida = new InterfazPartida();
-//        interfazPartida.setVisible(true);
-//        this.setVisible(false);
-        
         iniciarPartida();
     }//GEN-LAST:event_jugarMousePressed
 

@@ -7,6 +7,8 @@ public class Partida {
     private Jugador jugador_actual;
     private Jugador jugador_esperando;
     private boolean turno;
+    
+    Estadisticas estadisticas = new Estadisticas();
 
     public Partida(Jugador jugador_actual, Jugador jugador_esperando) {
         this.jugador_actual = jugador_actual;
@@ -37,19 +39,19 @@ public class Partida {
         this.turno = turno;
     }
     
-    public void info_partida() {
-        String jugador1 = jugador_actual.getNombre();
-        String jugador2 = jugador_esperando.getNombre();
+    public void info_partida(Marcador marcador) {        
+        int marcadorJugador1 = marcador.getPuntos_J1();               
+        int marcadorJugador2 = marcador.getPuntos_J2();
         
-        //int marcadorJugador1 = marcador.getPuntos_J1();               
-        //int marcadorJugador2 = marcador.getPuntos_J2();
+        if (marcadorJugador1 > marcadorJugador2) {
+            estadisticas.sumaEstadisticas(new Estadisticas(1, 1, 1, 0, marcadorJugador1, marcadorJugador2));
+        } else {
+            estadisticas.sumaEstadisticas(new Estadisticas(1, 1, 0, 1, marcadorJugador1, marcadorJugador2));
+        }
     }
     
     public void jugar() {
         Marcador marcador = new Marcador(0, 0);
-        
-        //Movimiento movimientosJugador1 = new Movimiento(jugador_actual.getNombre());
-        //Movimiento movimientosJugador2 = new Movimiento(jugador_esperando.getNombre());
         
         marcador.setPuntos_J1(0);
         marcador.setPuntos_J2(0);

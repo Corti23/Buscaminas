@@ -20,10 +20,6 @@ public class Almacen_Usuarios {
         leerDatos();
     }
 
-    public File getFichero() {
-        return fichero;
-    }
-
     public ArrayList<Jugador> getDatos() {
         return datos;
     }
