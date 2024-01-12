@@ -1,7 +1,5 @@
 package buscaminas;
 
-import java.util.ArrayList;
-
 public class Partida {
     
     private Jugador jugador_actual;
@@ -43,6 +41,7 @@ public class Partida {
         int marcadorJugador2 = marcador.getPuntos_J2();
     }
     
+    //Con este metodo se inicializa la partida y asigna el turno al juador local
     public void jugar() {
         Marcador marcador = new Marcador(0, 0);
         
@@ -52,6 +51,7 @@ public class Partida {
         turno = true;
     }
     
+    //Con este metodo cambiamos el turno del jugador en cada partida
     public void cambiarTurno() {
         this.turno = !(this.turno);
     }

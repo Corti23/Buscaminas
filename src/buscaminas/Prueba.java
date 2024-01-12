@@ -23,11 +23,11 @@ public class Prueba {
                 estadisticas.mostrarEstadisticas();
             }
             
-            ArrayList<Jugador> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
+            /*ArrayList<Jugador> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
             
             for (Jugador jugador : listaOrdenadaNombre) {
                 jugador.mostrarJugador();
-            }
+            }*/
             
             ArrayList<Estadisticas> listaComprobarRival = almacen_ComprobarRival.getDatos();
             

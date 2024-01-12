@@ -24,6 +24,7 @@ public class Almacen_Estadisticas {
         return datos;
     }
     
+    //Con este metodo creamos las estadisticas de un jugador y lo añadimos al fichero correspondiente de almacen Estadisticas
     public void crearEstadisticas(Estadisticas estadisticas) throws IOException {
         if (fichero.exists() && fichero.length() > 0) {
             try {
@@ -48,7 +49,7 @@ public class Almacen_Estadisticas {
         }
     }
     
-    public void borrarEstadisticas(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
+    /*public void borrarEstadisticas(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
         ArrayList<Estadisticas> copiaDatos = new ArrayList<>();
         
         for (Estadisticas dato : datos) {
@@ -65,8 +66,9 @@ public class Almacen_Estadisticas {
         for (Estadisticas j : copiaDatos) {
             crearEstadisticas(j);
         }
-    }
+    }*/
     
+    //Con este metodo leemos el fichero de almacen Estadisticas
     public void leerDatos() {
         if (fichero.exists()) {
             Estadisticas estadisticas;
@@ -88,6 +90,7 @@ public class Almacen_Estadisticas {
         }
     }
     
+    //Con este metodo comprobamos si las estadisticas de un jugador existen en el sistema
     public boolean existe(Estadisticas estadisticas) {
         for (Estadisticas dato : datos) {
             if (dato.getNombreJugador().equals(estadisticas.getNombreJugador())) {
@@ -98,6 +101,7 @@ public class Almacen_Estadisticas {
         return false;
     }
     
+    //Con este metodo actualizamos las estadisticas de los jugadores al terminar una partida
     public void actualizar(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
         ArrayList<Estadisticas> copiaDatos = new ArrayList<>();
         

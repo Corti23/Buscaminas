@@ -8,6 +8,7 @@ public class Tablero {
     private static final int MINAS = 51;
     private Casilla[][] casillas;
     
+    //Usamos Consumer para cada seleecion de casilla porque es una expresión que acepta un solo valor y no devuelve ninguno
     Consumer<Casilla> casillaMinaSeleccionada;
     Consumer<Casilla> casillaEnBlancoSeleccionada;
     
@@ -25,6 +26,7 @@ public class Tablero {
         calcularMinas();
     }
 
+    //Con este metodo generas aleatoriamente las minas en el mapa
     public void calcularMinas() {
         Random random = new Random();
         int minas = 0;
@@ -44,6 +46,7 @@ public class Tablero {
         calcularNumeros();
     }
 
+    //Con este metodo generas los numeros en el mapa basandonos en las minas que tengas en las casillas adyacentes
     public void calcularNumeros() {
         for (int i = 0; i < casillas.length; i++) {
             for (int j = 0; j < casillas[i].length; j++) {
@@ -58,6 +61,7 @@ public class Tablero {
         }
     }
 
+    //Con este metodo generas las casillas adyacentes con los numeros dependiendo de las minas
     public ArrayList<Casilla> casillasAdyacentes(Casilla c) {
         ArrayList<Casilla> adyacentes = new ArrayList<>();
 
@@ -104,6 +108,7 @@ public class Tablero {
         return adyacentes;
     }
     
+    //Con este metodo seleccionamos la casilla que es seleccionada en la interfaz y mostramos las casillas en blanco de forma recursiva
     public void seleccionarCasilla(int posicionFila, int posicionColumna) {
         casillaEnBlancoSeleccionada.accept(this.casillas[posicionFila][posicionColumna]);
         
@@ -121,6 +126,7 @@ public class Tablero {
         }
     }
 
+    //Con este metodo mostramos el tablero en formato texto
     public void mostrarTablero() {
         for (int i = 0; i < casillas.length; i++) {
             for (int j = 0; j < casillas[i].length; j++) {
@@ -138,11 +144,13 @@ public class Tablero {
         }
     }
     
+    //Setter del Consumer de minas
     public void setCasillaMinaSeleccionada(Consumer<Casilla> casillaMinaSeleccionada) {
         this.casillaMinaSeleccionada = casillaMinaSeleccionada;
         
     }
     
+    //Setter del Consumer de espacios en blanco
     public void setCasillaEnBlancoSeleccionada(Consumer<Casilla> casillaEnBlancoSeleccionada) {
         this.casillaEnBlancoSeleccionada = casillaEnBlancoSeleccionada;
     }

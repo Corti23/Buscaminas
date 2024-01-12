@@ -163,7 +163,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         password = JOptionPane.showInputDialog("Introduce la contraseña del jugador:");
 
         try {            
-            if (!almacen_Usuarios.existe(new Jugador(nombre, password)) && nombre != null && password != null) {
+            if (!almacen_Usuarios.existe(new Jugador(nombre, password)) && nombre != null && password != null  && !almacen_Estadisticas.existe(new Estadisticas(nombre, 0, 0, 0, 0, 0))) {
                 almacen_Usuarios.alta(new Jugador(nombre, password));
                 almacen_Estadisticas.crearEstadisticas(new Estadisticas(nombre, 0, 0, 0, 0, 0));
                 JOptionPane.showMessageDialog(null, "El jugador se ha registrado con éxito.");
@@ -187,15 +187,10 @@ public class InterfazAdmin extends javax.swing.JFrame {
 
         Jugador jugador = new Jugador(nombre, "");
         
-        //String nombreRival1 = ;
-        //String nombreRival2 = ;
-        
         try {            
             if (almacen_Usuarios.existe(jugador) && nombre != null) {                
                 almacen_Usuarios.baja(jugador);
-                almacen_Estadisticas.borrarEstadisticas(new Estadisticas(nombre, 0, 0, 0, 0, 0));
-                //almacen_ComprobarRival.borrarEstadisticasRival(new Estadisticas(nombreRival1, 0, 0, 0, 0, 0));
-                //almacen_ComprobarRival.borrarEstadisticasRival(new Estadisticas(nombreRival2, 0, 0, 0, 0, 0));
+                //almacen_Estadisticas.borrarEstadisticas(new Estadisticas(nombre, 0, 0, 0, 0, 0));
                 JOptionPane.showMessageDialog(null, "El jugador se ha eliminado con éxito.");
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR, el jugador no estaba registrado, prueba con otro.");

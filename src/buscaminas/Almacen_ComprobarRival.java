@@ -24,6 +24,7 @@ public class Almacen_ComprobarRival {
         return datos;
     }
     
+    //Con este metodo creamos las estadisticas del las partidas entre dos jugadores y lo añadimos al fichero correspondiente de almacen ComprobarRival
     public void crearEstadisticasRival(Estadisticas estadisticas) throws IOException {
         if (fichero.exists() && fichero.length() > 0) {
             try {
@@ -48,7 +49,7 @@ public class Almacen_ComprobarRival {
         }
     }
     
-    public void borrarEstadisticasRival(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
+    /*public void borrarEstadisticasRival(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
         ArrayList<Estadisticas> copiaDatos = new ArrayList<>();
         
         for (Estadisticas dato : datos) {
@@ -65,8 +66,9 @@ public class Almacen_ComprobarRival {
         for (Estadisticas j : copiaDatos) {
             crearEstadisticasRival(j);
         }
-    }
+    }*/
     
+    //Con este metodo leemos el fichero de almacen ComprobarRival
     public void leerDatos() {
         if (fichero.exists()) {
             Estadisticas estadisticas;
@@ -88,6 +90,7 @@ public class Almacen_ComprobarRival {
         }
     }
     
+    //Con este metodo comprobamos si las estadisticas del las partidas entre dos jugadores existen en el sistema
     public boolean existe(Estadisticas estadisticas) {
         for (Estadisticas dato : datos) {
             if (dato.getNombreJugador().equals(estadisticas.getNombreJugador())) {
@@ -98,6 +101,7 @@ public class Almacen_ComprobarRival {
         return false;
     }
     
+    //Con este metodo actualizamos las estadisticas del las partidas entre dos jugadores al terminar una partida
     public void actualizar(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
         ArrayList<Estadisticas> copiaDatos = new ArrayList<>();
         

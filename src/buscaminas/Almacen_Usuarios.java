@@ -26,6 +26,7 @@ public class Almacen_Usuarios {
         return datos;
     }
     
+    //Con este metodo damos de alta a un jugador y lo añadimos al fichero correspondiente de almacen Jugadores
     public void alta(Jugador jugador) throws IOException {
         if (fichero.exists() && fichero.length() > 0) {
             try {
@@ -50,6 +51,7 @@ public class Almacen_Usuarios {
         }
     }
     
+    //Con este metodo damos de baja a un jugador y lo eliminamos del fichero correspondiente de almacen Jugadores
     public void baja(Jugador jugador) throws IOException, ClassNotFoundException { 
         ArrayList<Jugador> copiaDatos = new ArrayList<>();
         
@@ -69,6 +71,7 @@ public class Almacen_Usuarios {
         }
     }
     
+    //Con este metodo leemos el fichero de almacen Jugadores
     public void leerDatos() {
         if (fichero.exists()) {
             Jugador jugador;
@@ -90,6 +93,7 @@ public class Almacen_Usuarios {
         }
     }
     
+    //Con este metodo comprobamos si un jugador existe en el sistema
     public boolean existe(Jugador jugador) {
         for (Jugador dato : datos) {
             if (dato.getNombre().equals(jugador.getNombre())) {
@@ -100,6 +104,7 @@ public class Almacen_Usuarios {
         return false;
     }
     
+    //Con este metodo comprobamos si un jugador existe en el sistema para validarlo al iniciar sesion
     public boolean autenticar(Usuario usuario) {
         String nombre = usuario.getNombre();
         String password = usuario.getPassword();
@@ -113,6 +118,7 @@ public class Almacen_Usuarios {
         return false;
     }
     
+    //Con este metodo cargamos un fichero TXT paraa dar de alta a multiples jugadores al mismo tiempo
     public void cargarListado(File fichero) throws IOException {
         FileReader fileReader = new FileReader(fichero);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -130,8 +136,10 @@ public class Almacen_Usuarios {
         while (numeroJugadores > 0) {
             String[] jugadorPassword = altaJugador[numeroJugadores].split("#");
             
-            alta(new Jugador(jugadorPassword[0], jugadorPassword[1]));
-            almacen_Estadisticas.crearEstadisticas(new Estadisticas(jugadorPassword[0], 0, 0, 0, 0, 0));
+            if (!almacen_Estadisticas.existe(new Estadisticas(jugadorPassword[0], 0, 0, 0, 0, 0))) {
+                alta(new Jugador(jugadorPassword[0], jugadorPassword[1]));
+                almacen_Estadisticas.crearEstadisticas(new Estadisticas(jugadorPassword[0], 0, 0, 0, 0, 0));
+            }
             
             numeroJugadores--;
         }
@@ -139,6 +147,7 @@ public class Almacen_Usuarios {
         bufferedReader.close();
     }
     
+    //Con este metodo ordenamos la clasificacion por orden alfabetico
     public ArrayList<Jugador> clasificacionPorNombre() {
         ArrayList<Jugador> listaOrdenada = new ArrayList<>();
         
@@ -156,6 +165,7 @@ public class Almacen_Usuarios {
         return listaOrdenada;
     }
     
+    //Con este metodo ordenamos la clasificacion por partidas ganadas
     public ArrayList<Estadisticas> clasificacionPorVictorias() {
         ArrayList<Estadisticas> listaOrdenada = new ArrayList<>();
         ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
