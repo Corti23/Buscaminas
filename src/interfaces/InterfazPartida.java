@@ -22,7 +22,8 @@ public class InterfazPartida extends javax.swing.JFrame {
     Partida partida;
     Marcador marcador;
     Movimiento movimiento;
-    Almacen_Partidas almacen_Partidas;
+    Almacen_Estadisticas almacen_Estadisticas;
+    Almacen_ComprobarRival almacen_ComprobarRival;
   
     private static int contadorPartidas = 1;
     int contador = 0;
@@ -31,10 +32,14 @@ public class InterfazPartida extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
+        almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
+        almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
+        
         crearCasillas();
         crearTablero();
                 
         partida = new Partida(jugador_actual, jugador_esperando);
+        marcador = new Marcador(0, 0);
         partida.jugar();
         
         if (partida.getTurno()) {
@@ -73,7 +78,28 @@ public class InterfazPartida extends javax.swing.JFrame {
                     if (marcador.getPuntos_J1() == 26) {
                         JOptionPane.showMessageDialog(null, "¡ENHORABUENA!, " + jugador1.getText() + " has ganado la partida.");
                         
-                        partida.info_partida(marcador);
+                        try {
+                            almacen_Estadisticas.actualizar(new Estadisticas(jugador_actual.getNombre(), 1, 1, 0, marcador.getPuntos_J1(), marcador.getPuntos_J2()));
+                            almacen_Estadisticas.actualizar(new Estadisticas(jugador_esperando.getNombre(), 1, 0, 1, marcador.getPuntos_J2(), marcador.getPuntos_J1()));
+                        } catch (IOException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        } catch (ClassNotFoundException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        }
+                        
+                        try {
+                            if (almacen_ComprobarRival.existe(new Estadisticas(jugador_actual.getNombre() + jugador_esperando.getNombre(), 0, 0, 0, 0, 0)) && almacen_ComprobarRival.existe(new Estadisticas(jugador_esperando.getNombre() + jugador_actual.getNombre(), 0, 0, 0, 0, 0))) {
+                                almacen_ComprobarRival.actualizar(new Estadisticas(jugador_actual.getNombre() + jugador_esperando.getNombre(), 1, 1, 0, marcador.getPuntos_J1(), marcador.getPuntos_J2()));
+                                almacen_ComprobarRival.actualizar(new Estadisticas(jugador_esperando.getNombre() + jugador_actual.getNombre(), 1, 0, 1, marcador.getPuntos_J2(), marcador.getPuntos_J1()));
+                            } else {
+                                almacen_ComprobarRival.crearEstadisticasRival(new Estadisticas(jugador_actual.getNombre() + jugador_esperando.getNombre(), 1, 1, 0, marcador.getPuntos_J1(), marcador.getPuntos_J2()));
+                                almacen_ComprobarRival.crearEstadisticasRival(new Estadisticas(jugador_esperando.getNombre() + jugador_actual.getNombre(), 1, 0, 1, marcador.getPuntos_J2(), marcador.getPuntos_J1()));
+                            }                            
+                        } catch (IOException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        } catch (ClassNotFoundException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        }
                         
                         interfazJugador = new InterfazJugador();
                         interfazJugador.setVisible(true);
@@ -92,7 +118,28 @@ public class InterfazPartida extends javax.swing.JFrame {
                     if (marcador.getPuntos_J2() == 26) {
                         JOptionPane.showMessageDialog(null, "¡ENHORABUENA!, " + jugador2.getText() + " has ganado la partida.");
                         
-                        partida.info_partida(marcador);
+                        try {
+                            almacen_Estadisticas.actualizar(new Estadisticas(jugador_actual.getNombre(), 1, 0, 1, marcador.getPuntos_J1(), marcador.getPuntos_J2()));
+                            almacen_Estadisticas.actualizar(new Estadisticas(jugador_esperando.getNombre(), 1, 1, 0, marcador.getPuntos_J2(), marcador.getPuntos_J1()));
+                        } catch (IOException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        } catch (ClassNotFoundException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        }
+                        
+                        try {
+                            if (almacen_ComprobarRival.existe(new Estadisticas(jugador_actual.getNombre() + jugador_esperando.getNombre(), 0, 0, 0, 0, 0)) && almacen_ComprobarRival.existe(new Estadisticas(jugador_esperando.getNombre() + jugador_actual.getNombre(), 0, 0, 0, 0, 0))) {
+                                almacen_ComprobarRival.actualizar(new Estadisticas(jugador_esperando.getNombre() + jugador_actual.getNombre(), 1, 1, 0, marcador.getPuntos_J2(), marcador.getPuntos_J1()));
+                                almacen_ComprobarRival.actualizar(new Estadisticas(jugador_actual.getNombre() + jugador_esperando.getNombre(), 1, 0, 1, marcador.getPuntos_J1(), marcador.getPuntos_J2()));
+                            } else {
+                                almacen_ComprobarRival.crearEstadisticasRival(new Estadisticas(jugador_esperando.getNombre() + jugador_actual.getNombre(), 1, 1, 0, marcador.getPuntos_J2(), marcador.getPuntos_J1()));
+                                almacen_ComprobarRival.crearEstadisticasRival(new Estadisticas(jugador_actual.getNombre() + jugador_esperando.getNombre(), 1, 0, 1, marcador.getPuntos_J1(), marcador.getPuntos_J2()));
+                            }                            
+                        } catch (IOException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        } catch (ClassNotFoundException e) {
+                            System.out.println("ERROR, " + e.getMessage());
+                        }
                         
                         interfazJugador = new InterfazJugador();
                         interfazJugador.setVisible(true);

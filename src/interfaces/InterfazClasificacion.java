@@ -2,22 +2,80 @@ package interfaces;
 
 import buscaminas.*;
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 public class InterfazClasificacion extends javax.swing.JFrame {
 
     Almacen_Usuarios almacen_Usuarios;
+    Almacen_Estadisticas almacen_Estadisticas;
     private String nombre1, password1;
+    
+    DefaultTableModel modeloNombre;
+    DefaultTableModel modeloVictorias;
             
     public InterfazClasificacion() {
         initComponents();
         this.setLocationRelativeTo(this);
         
         almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
+        almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
+        
+        jScrollPane1.getViewport().setBackground(Color.black);
+        jScrollPane2.getViewport().setBackground(Color.black);
+        
+        centrar();
+        
+        modeloNombre = (DefaultTableModel) tablaNombres.getModel();
+        modeloVictorias = (DefaultTableModel) tablaVictorias.getModel();
+        
+        insertarClasificacionNombre();
+        insertarClasificacionVictorias();
     }
     
     public void insertarJugador1(String nombre, String password) {
         this.nombre1 = nombre;
         this.password1 = password;
+    }
+    
+    public void insertarClasificacionNombre() {
+        ArrayList<Jugador> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
+        ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
+        
+        for (Jugador jugador : listaOrdenadaNombre) {
+            for (Estadisticas estadistica : listaEstadisticas) {
+                if (estadistica.getNombreJugador().equals(jugador.getNombre())) {
+                    modeloNombre.addRow(new Object[]{jugador.getNombre(), estadistica.getJugadas(), estadistica.getGanadas(), estadistica.getPerdidas(), estadistica.getMinas_a_favor(), estadistica.getMinas_en_contra()});
+                }
+            }
+        }
+    }
+    
+    public void insertarClasificacionVictorias() {
+        ArrayList<Estadisticas> listaOrdenadaVictorias = almacen_Usuarios.clasificacionPorVictorias();
+        ArrayList<Jugador> listaJugadores = almacen_Usuarios.getDatos();
+        
+        for (Estadisticas estadistica : listaOrdenadaVictorias) {
+            for (Jugador jugador : listaJugadores) {
+                if (jugador.getNombre().equals(estadistica.getNombreJugador())) {
+                    modeloVictorias.addRow(new Object[]{jugador.getNombre(), estadistica.getJugadas(), estadistica.getGanadas(), estadistica.getPerdidas(), estadistica.getMinas_a_favor(), estadistica.getMinas_en_contra()});
+                }
+            }
+        }
+    }
+    
+    public void centrar(){
+        DefaultTableCellRenderer alinear = new DefaultTableCellRenderer();
+        alinear.setHorizontalAlignment(SwingConstants.LEFT);
+        
+        tablaVictorias.getColumnModel().getColumn(0).setCellRenderer(alinear);
+        tablaVictorias.getColumnModel().getColumn(1).setCellRenderer(alinear);
+        tablaVictorias.getColumnModel().getColumn(2).setCellRenderer(alinear);
+        tablaVictorias.getColumnModel().getColumn(3).setCellRenderer(alinear);
+        tablaVictorias.getColumnModel().getColumn(4).setCellRenderer(alinear);
+        tablaVictorias.getColumnModel().getColumn(5).setCellRenderer(alinear);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,8 +85,12 @@ public class InterfazClasificacion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         clasificacion = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaVictorias = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaNombres = new javax.swing.JTable();
         volver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -42,37 +104,113 @@ public class InterfazClasificacion extends javax.swing.JFrame {
         clasificacion.setText("CLASIFICACIÓN");
         jPanel1.add(clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 210, 40));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("NOMBRE", jPanel2);
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane2.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setForeground(new java.awt.Color(255, 255, 255));
+
+        tablaVictorias.setBackground(new java.awt.Color(0, 0, 0));
+        tablaVictorias.setForeground(new java.awt.Color(255, 255, 255));
+        tablaVictorias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Jugador", "Jugadas", "Ganadas", "Perdidas", "Minas encontradas", "Minas rival"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaVictorias.getTableHeader().setResizingAllowed(false);
+        jScrollPane2.setViewportView(tablaVictorias);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("VICTORIAS", jPanel3);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+
+        tablaNombres.setBackground(new java.awt.Color(0, 0, 0));
+        tablaNombres.setForeground(new java.awt.Color(255, 255, 255));
+        tablaNombres.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Jugador", "Jugadas", "Ganadas", "Perdidas", "Minas encontradas", "Minas rival"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaNombres.getTableHeader().setResizingAllowed(false);
+        jScrollPane1.setViewportView(tablaNombres);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("NOMBRE", jPanel2);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 630, 340));
 
@@ -162,7 +300,11 @@ public class InterfazClasificacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tablaNombres;
+    private javax.swing.JTable tablaVictorias;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,8 +4,6 @@ import buscaminas.*;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -14,6 +12,8 @@ public class InterfazAdmin extends javax.swing.JFrame {
     public static InterfazInicio interfazInicio;
     
     Almacen_Usuarios almacen_Usuarios;
+    Almacen_Estadisticas almacen_Estadisticas;
+    Almacen_ComprobarRival almacen_ComprobarRival;
     private String nombre;
     private String password;
 
@@ -22,6 +22,8 @@ public class InterfazAdmin extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         
         almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
+        almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
+        almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
     }
     
     public void insertarAdmin(String nombre, String password) {
@@ -163,6 +165,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
         try {            
             if (!almacen_Usuarios.existe(new Jugador(nombre, password)) && nombre != null && password != null) {
                 almacen_Usuarios.alta(new Jugador(nombre, password));
+                almacen_Estadisticas.crearEstadisticas(new Estadisticas(nombre, 0, 0, 0, 0, 0));
                 JOptionPane.showMessageDialog(null, "El jugador se ha registrado con éxito.");
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR, el jugador ya estaba registrado, prueba con otro.");
@@ -184,9 +187,15 @@ public class InterfazAdmin extends javax.swing.JFrame {
 
         Jugador jugador = new Jugador(nombre, "");
         
+        //String nombreRival1 = ;
+        //String nombreRival2 = ;
+        
         try {            
             if (almacen_Usuarios.existe(jugador) && nombre != null) {                
                 almacen_Usuarios.baja(jugador);
+                almacen_Estadisticas.borrarEstadisticas(new Estadisticas(nombre, 0, 0, 0, 0, 0));
+                //almacen_ComprobarRival.borrarEstadisticasRival(new Estadisticas(nombreRival1, 0, 0, 0, 0, 0));
+                //almacen_ComprobarRival.borrarEstadisticasRival(new Estadisticas(nombreRival2, 0, 0, 0, 0, 0));
                 JOptionPane.showMessageDialog(null, "El jugador se ha eliminado con éxito.");
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR, el jugador no estaba registrado, prueba con otro.");

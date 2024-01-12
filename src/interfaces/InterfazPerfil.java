@@ -2,11 +2,13 @@ package interfaces;
 
 import buscaminas.*;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class InterfazPerfil extends javax.swing.JFrame {
     
     Almacen_Usuarios almacen_Usuarios;
+    Almacen_Estadisticas almacen_Estadisticas;
     private String nombre1, password1;
     
     public InterfazPerfil() {
@@ -14,6 +16,7 @@ public class InterfazPerfil extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         
         almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
+        almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
     }
     
     public void insertarJugador1(String nombre, String password) {
@@ -21,6 +24,18 @@ public class InterfazPerfil extends javax.swing.JFrame {
         this.password1 = password;
         
         nombreJugador.setText("Perfil de " + nombre1);
+        
+        ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
+            
+        for (Estadisticas estadisticas : listaEstadisticas) {
+            if (estadisticas.getNombreJugador().equals(nombre1)) {
+                jugadas.setText(String.valueOf(estadisticas.getJugadas()));
+                ganadas.setText(String.valueOf(estadisticas.getGanadas()));
+                perdidas.setText(String.valueOf(estadisticas.getPerdidas()));
+                minas_encontradas.setText(String.valueOf(estadisticas.getMinas_a_favor()));
+                minas_rival.setText(String.valueOf(estadisticas.getMinas_en_contra()));
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")

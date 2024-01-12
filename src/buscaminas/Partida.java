@@ -8,7 +8,6 @@ public class Partida {
     private Jugador jugador_esperando;
     private boolean turno;
     
-    Estadisticas estadisticas = new Estadisticas();
 
     public Partida(Jugador jugador_actual, Jugador jugador_esperando) {
         this.jugador_actual = jugador_actual;
@@ -42,12 +41,6 @@ public class Partida {
     public void info_partida(Marcador marcador) {        
         int marcadorJugador1 = marcador.getPuntos_J1();               
         int marcadorJugador2 = marcador.getPuntos_J2();
-        
-        if (marcadorJugador1 > marcadorJugador2) {
-            estadisticas.sumaEstadisticas(new Estadisticas(1, 1, 1, 0, marcadorJugador1, marcadorJugador2));
-        } else {
-            estadisticas.sumaEstadisticas(new Estadisticas(1, 1, 0, 1, marcadorJugador1, marcadorJugador2));
-        }
     }
     
     public void jugar() {

@@ -1,38 +1,31 @@
 package buscaminas;
 
-public class Estadisticas {
+import java.io.Serializable;
+
+public class Estadisticas implements Serializable {
     
-    private int numeroPartida;
+    private String nombreJugador;
     private int jugadas;
     private int ganadas;
     private int perdidas;
     private int minas_a_favor;
     private int minas_en_contra;
 
-    public Estadisticas(int numeroPartida, int jugadas, int ganadas, int perdidas, int minas_a_favor, int minas_en_contra) {
-        this.numeroPartida = numeroPartida;
+    public Estadisticas(String nombreJugador, int jugadas, int ganadas, int perdidas, int minas_a_favor, int minas_en_contra) {
+        this.nombreJugador = nombreJugador;
         this.jugadas = jugadas;
         this.ganadas = ganadas;
         this.perdidas = perdidas;
         this.minas_a_favor = minas_a_favor;
         this.minas_en_contra = minas_en_contra;
     } 
-    
-    public Estadisticas() {
-        this.numeroPartida = 0;
-        this.jugadas = 0;
-        this.ganadas = 0;
-        this.perdidas = 0;
-        this.minas_a_favor = 0;
-        this.minas_en_contra = 0;
-    } 
-
-    public int getNumeroPartida() {
-        return numeroPartida;
+   
+    public String getNombreJugador() {
+        return nombreJugador;
     }
 
-    public void setNumeroPartida(int numeroPartida) {
-        this.numeroPartida = numeroPartida;
+    public void setNombreJugador(String nombreJugador) {
+        this.nombreJugador = nombreJugador;
     }
 
     public int getJugadas() {
@@ -75,17 +68,7 @@ public class Estadisticas {
         this.minas_en_contra = minas_en_contra;
     }
     
-    public void sumaEstadisticas(Estadisticas sumaEstadisticas) {
-        numeroPartida += sumaEstadisticas.getNumeroPartida();
-        jugadas += sumaEstadisticas.getJugadas();
-        ganadas += sumaEstadisticas.getGanadas();
-        perdidas += sumaEstadisticas.getPerdidas();
-        minas_a_favor += sumaEstadisticas.getMinas_a_favor();
-        minas_en_contra += sumaEstadisticas.getMinas_en_contra();
-    }
-
-    @Override
-    public String toString() {
-        return numeroPartida + "#" + jugadas + "#" + ganadas + "#" + perdidas + "#" + minas_a_favor + "#" + minas_en_contra;
+    public void mostrarEstadisticas() {
+        System.out.println(nombreJugador + "#" + jugadas + "#" + ganadas + "#" + perdidas + "#" + minas_a_favor + "#" + minas_en_contra);
     }
 }

@@ -8,6 +8,8 @@ public class Almacen_Usuarios {
     private File fichero;
     private ArrayList<Jugador> datos;
     
+    Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
+    
     public Almacen_Usuarios(String fichero) {
         this.fichero = new File(fichero);
         this.datos = new ArrayList<>();
@@ -129,10 +131,46 @@ public class Almacen_Usuarios {
             String[] jugadorPassword = altaJugador[numeroJugadores].split("#");
             
             alta(new Jugador(jugadorPassword[0], jugadorPassword[1]));
+            almacen_Estadisticas.crearEstadisticas(new Estadisticas(jugadorPassword[0], 0, 0, 0, 0, 0));
             
             numeroJugadores--;
         }
         
         bufferedReader.close();
+    }
+    
+    public ArrayList<Jugador> clasificacionPorNombre() {
+        ArrayList<Jugador> listaOrdenada = new ArrayList<>();
+        
+        Collections.sort(datos, new Comparator<Jugador>() {
+            @Override
+            public int compare(Jugador jugador1, Jugador jugador2) {
+                return jugador1.getNombre().compareTo(jugador2.getNombre());
+            }            
+        });
+        
+        for (Jugador jugador : datos) {
+            listaOrdenada.add(jugador);
+        }
+        
+        return listaOrdenada;
+    }
+    
+    public ArrayList<Estadisticas> clasificacionPorVictorias() {
+        ArrayList<Estadisticas> listaOrdenada = new ArrayList<>();
+        ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
+        
+        Collections.sort(listaEstadisticas, new Comparator<Estadisticas>() {
+            @Override
+            public int compare(Estadisticas estadisticas1, Estadisticas estadisticas2) {
+                return new Integer(estadisticas2.getGanadas()).compareTo(new Integer(estadisticas1.getGanadas()));
+            }            
+        });
+        
+        for (Estadisticas estadisticas : listaEstadisticas) {
+            listaOrdenada.add(estadisticas);
+        }
+        
+        return listaOrdenada;
     }
 }

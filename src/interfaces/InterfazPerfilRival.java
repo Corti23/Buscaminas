@@ -2,10 +2,12 @@ package interfaces;
 
 import buscaminas.*;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class InterfazPerfilRival extends javax.swing.JFrame {
 
     Almacen_Usuarios almacen_Usuarios;
+    Almacen_ComprobarRival almacen_ComprobarRival;
     private String nombre1, password1, nombre2, password2;
     
     public InterfazPerfilRival() {
@@ -13,6 +15,7 @@ public class InterfazPerfilRival extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         
         almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
+        almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
     }
     
     public void escribirJugador1(String nombre, String password) {
@@ -20,6 +23,7 @@ public class InterfazPerfilRival extends javax.swing.JFrame {
         this.password1 = password;
         
         nombreJugador1.setText(nombre1);
+        nombreJugador1.setForeground(new Color(0, 204, 204));
     }
     
     public void escribirJugador2(String nombre, String password) {
@@ -27,6 +31,88 @@ public class InterfazPerfilRival extends javax.swing.JFrame {
         this.password2 = password;
         
         nombreJugador2.setText(nombre2);
+        nombreJugador2.setForeground(new Color(255, 102, 102));
+        
+        insertarJugador1();
+        insertarJugador2();
+        cambiarFondos();
+    }
+    
+    public void insertarJugador1() {
+        ArrayList<Estadisticas> listaEstadisticas = almacen_ComprobarRival.getDatos();
+        
+        String nombre = nombre1 + nombre2;
+            
+        for (Estadisticas estadisticas : listaEstadisticas) {
+            if (estadisticas.getNombreJugador().equals(nombre)) {
+                jugadasJ1.setText(String.valueOf(estadisticas.getJugadas()));
+                ganadasJ1.setText(String.valueOf(estadisticas.getGanadas()));
+                perdidasJ1.setText(String.valueOf(estadisticas.getPerdidas()));
+                minas_encontradasJ1.setText(String.valueOf(estadisticas.getMinas_a_favor()));
+                minas_rivalJ1.setText(String.valueOf(estadisticas.getMinas_en_contra()));
+            }
+        }
+    }
+    
+    public void insertarJugador2() {
+        ArrayList<Estadisticas> listaEstadisticas = almacen_ComprobarRival.getDatos();
+            
+        String nombre = nombre2 + nombre1;
+               
+        for (Estadisticas estadisticas : listaEstadisticas) {
+            if (estadisticas.getNombreJugador().equals(nombre)) {
+                jugadasJ2.setText(String.valueOf(estadisticas.getJugadas()));
+                ganadasJ2.setText(String.valueOf(estadisticas.getGanadas()));
+                perdidasJ2.setText(String.valueOf(estadisticas.getPerdidas()));
+                minas_encontradasJ2.setText(String.valueOf(estadisticas.getMinas_a_favor()));
+                minas_rivalJ2.setText(String.valueOf(estadisticas.getMinas_en_contra()));
+            }
+        }
+    }
+    
+    public void cambiarFondos() {
+        jugadasJ1.setBackground(new Color(0, 204, 204));
+        ganadasJ1.setBackground(new Color(0, 204, 204));
+        perdidasJ1.setBackground(new Color(0, 204, 204));
+        minas_encontradasJ1.setBackground(new Color(0, 204, 204));
+        minas_rivalJ1.setBackground(new Color(0, 204, 204));
+        
+        jugadasJ2.setBackground(new Color(255, 102, 102));
+        ganadasJ2.setBackground(new Color(255, 102, 102));
+        perdidasJ2.setBackground(new Color(255, 102, 102));
+        minas_encontradasJ2.setBackground(new Color(255, 102, 102));
+        minas_rivalJ2.setBackground(new Color(255, 102, 102));
+        /*if (Integer.parseInt(ganadasJ1.getText()) > Integer.parseInt(ganadasJ2.getText())) {
+            ganadasJ1.setBackground(Color.green);
+            ganadasJ2.setBackground(Color.red);
+        } else if (Integer.parseInt(ganadasJ1.getText()) < Integer.parseInt(ganadasJ2.getText())) {
+            ganadasJ2.setBackground(Color.green);
+            ganadasJ1.setBackground(Color.red);
+        }
+        
+        if (Integer.parseInt(perdidasJ1.getText()) > Integer.parseInt(perdidasJ2.getText())) {
+            perdidasJ1.setBackground(Color.green);
+            perdidasJ2.setBackground(Color.red);
+        } else if (Integer.parseInt(perdidasJ1.getText()) < Integer.parseInt(perdidasJ2.getText())) {
+            perdidasJ2.setBackground(Color.green);
+            perdidasJ1.setBackground(Color.red);
+        }
+        
+        if (Integer.parseInt(minas_encontradasJ1.getText()) > Integer.parseInt(minas_encontradasJ2.getText())) {
+            minas_encontradasJ1.setBackground(Color.green);
+            minas_encontradasJ2.setBackground(Color.red);
+        } else if (Integer.parseInt(minas_encontradasJ1.getText()) < Integer.parseInt(minas_encontradasJ2.getText())) {
+            minas_encontradasJ2.setBackground(Color.green);
+            minas_encontradasJ1.setBackground(Color.red);
+        }
+        
+        if (Integer.parseInt(minas_rivalJ1.getText()) > Integer.parseInt(minas_rivalJ2.getText())) {
+            minas_rivalJ1.setBackground(Color.green);
+            minas_rivalJ2.setBackground(Color.red);
+        } else if (Integer.parseInt(minas_rivalJ1.getText()) < Integer.parseInt(minas_rivalJ2.getText())) {
+            minas_rivalJ2.setBackground(Color.green);
+            minas_rivalJ1.setBackground(Color.red);
+        }*/
     }
 
     @SuppressWarnings("unchecked")
@@ -60,23 +146,23 @@ public class InterfazPerfilRival extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nombreJugador1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        nombreJugador1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         nombreJugador1.setForeground(new java.awt.Color(255, 255, 255));
         nombreJugador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreJugador1.setText("JUGADOR1");
-        jPanel1.add(nombreJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 160, 70));
+        jPanel1.add(nombreJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 210, 100));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("VS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 50, 70));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 100, 100));
 
-        nombreJugador2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        nombreJugador2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         nombreJugador2.setForeground(new java.awt.Color(255, 255, 255));
         nombreJugador2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreJugador2.setText("JUGADOR2");
-        jPanel1.add(nombreJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, 70));
+        jPanel1.add(nombreJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 240, 100));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

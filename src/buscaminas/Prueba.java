@@ -8,11 +8,31 @@ public class Prueba {
     public static void main(String[] args) {        
         try {
             Almacen_Usuarios almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
+            Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
+            Almacen_ComprobarRival almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
             
             ArrayList<Jugador> listaJugadores = almacen_Usuarios.getDatos();
             
             for (Jugador jugador : listaJugadores) {
                 jugador.mostrarJugador();
+            }
+            
+            ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
+            
+            for (Estadisticas estadisticas : listaEstadisticas) {
+                estadisticas.mostrarEstadisticas();
+            }
+            
+            ArrayList<Jugador> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
+            
+            for (Jugador jugador : listaOrdenadaNombre) {
+                jugador.mostrarJugador();
+            }
+            
+            ArrayList<Estadisticas> listaComprobarRival = almacen_ComprobarRival.getDatos();
+            
+            for (Estadisticas estadisticas : listaComprobarRival) {
+                estadisticas.mostrarEstadisticas();
             }
             
             /*Usuario usuario = new Usuario("Pepe", "12345");
