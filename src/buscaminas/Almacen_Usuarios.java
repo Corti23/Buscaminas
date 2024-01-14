@@ -8,7 +8,7 @@ public class Almacen_Usuarios {
     private File fichero;
     private ArrayList<Jugador> datos;
     
-    Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("ficheros\\listadoEstadisticas.ser");
+    Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("listadoEstadisticas.ser");
     
     public Almacen_Usuarios(String fichero) {
         this.fichero = new File(fichero);
@@ -39,7 +39,7 @@ public class Almacen_Usuarios {
             }
         } else {
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream("ficheros\\listadoJugadores.ser");
+                FileOutputStream fileOutputStream = new FileOutputStream("listadoJugadores.ser");
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
                 objectOutputStream.writeObject(jugador);

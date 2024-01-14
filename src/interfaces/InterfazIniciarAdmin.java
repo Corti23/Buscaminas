@@ -14,7 +14,7 @@ public class InterfazIniciarAdmin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Usuarios = new Almacen_Usuarios("ficheros\\listaAdmin.ser");
+        almacen_Usuarios = new Almacen_Usuarios("listaAdmin.ser");
     }
 
     @SuppressWarnings("unchecked")

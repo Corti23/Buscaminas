@@ -8,10 +8,10 @@ public class Prueba {
     
     public static void main(String[] args) {        
         try {
-            Almacen_Usuarios almacen_Usuarios = new Almacen_Usuarios("ficheros\\listadoJugadores.ser");
-            Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("ficheros\\listadoEstadisticas.ser");
-            Almacen_ComprobarRival almacen_ComprobarRival = new Almacen_ComprobarRival("ficheros\\listadoEstadisticasRivales.ser");
-            Almacen_Partidas almacen_Partidas = new Almacen_Partidas("ficheros\\listadoPartidas.txt");
+            Almacen_Usuarios almacen_Usuarios = new Almacen_Usuarios("listadoJugadores.ser");
+            Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("listadoEstadisticas.ser");
+            Almacen_ComprobarRival almacen_ComprobarRival = new Almacen_ComprobarRival("listadoEstadisticasRivales.ser");
+            Almacen_Partidas almacen_Partidas = new Almacen_Partidas("listadoPartidas.txt");
             
             /*ArrayList<Jugador> listaJugadores = almacen_Usuarios.getDatos();
             

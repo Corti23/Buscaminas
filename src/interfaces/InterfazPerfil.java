@@ -15,8 +15,8 @@ public class InterfazPerfil extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Usuarios = new Almacen_Usuarios("ficheros\\listadoJugadores.ser");
-        almacen_Estadisticas = new Almacen_Estadisticas("ficheros\\listadoEstadisticas.ser");
+        almacen_Usuarios = new Almacen_Usuarios("listadoJugadores.ser");
+        almacen_Estadisticas = new Almacen_Estadisticas("listadoEstadisticas.ser");
     }
     
     public void insertarJugador1(String nombre, String password) {

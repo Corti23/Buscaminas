@@ -37,7 +37,7 @@ public class Almacen_ComprobarRival {
             }
         } else {
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream("ficheros\\listadoEstadisticasRivales.ser");
+                FileOutputStream fileOutputStream = new FileOutputStream("listadoEstadisticasRivales.ser");
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
                 objectOutputStream.writeObject(estadisticas);
