@@ -148,17 +148,18 @@ public class Almacen_Usuarios {
     }
     
     //Con este metodo ordenamos la clasificacion por orden alfabetico
-    public ArrayList<Jugador> clasificacionPorNombre() {
-        ArrayList<Jugador> listaOrdenada = new ArrayList<>();
+    public ArrayList<Estadisticas> clasificacionPorNombre() {
+        ArrayList<Estadisticas> listaOrdenada = new ArrayList<>();
+        ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
         
-        Collections.sort(datos, new Comparator<Jugador>() {
+        Collections.sort(listaEstadisticas, new Comparator<Estadisticas>() {
             @Override
-            public int compare(Jugador jugador1, Jugador jugador2) {
-                return jugador1.getNombre().compareTo(jugador2.getNombre());
+            public int compare(Estadisticas jugador1, Estadisticas jugador2) {
+                return jugador1.getNombreJugador().compareTo(jugador2.getNombreJugador());
             }            
         });
         
-        for (Jugador jugador : datos) {
+        for (Estadisticas jugador : listaEstadisticas) {
             listaOrdenada.add(jugador);
         }
         

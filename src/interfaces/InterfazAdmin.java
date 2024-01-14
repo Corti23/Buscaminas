@@ -190,7 +190,6 @@ public class InterfazAdmin extends javax.swing.JFrame {
         try {            
             if (almacen_Usuarios.existe(jugador) && nombre != null) {                
                 almacen_Usuarios.baja(jugador);
-                //almacen_Estadisticas.borrarEstadisticas(new Estadisticas(nombre, 0, 0, 0, 0, 0));
                 JOptionPane.showMessageDialog(null, "El jugador se ha eliminado con éxito.");
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR, el jugador no estaba registrado, prueba con otro.");
@@ -217,7 +216,11 @@ public class InterfazAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_cerrar_sesionActionPerformed
 
     private void info_partidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_info_partidasActionPerformed
-        // TODO add your handling code here:
+        InterfazAdminInfoPartidas interfazAdminInfoPartidas= new InterfazAdminInfoPartidas();
+        interfazAdminInfoPartidas.setVisible(true);
+        interfazAdminInfoPartidas.insertarAdmin(nombre, password);
+        
+        this.setVisible(false);
     }//GEN-LAST:event_info_partidasActionPerformed
 
     private void altaFicheroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_altaFicheroMousePressed

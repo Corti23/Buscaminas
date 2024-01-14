@@ -1,9 +1,10 @@
 package buscaminas;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class Tablero {
+public class Tablero implements Serializable {
     
     private static final int MINAS = 51;
     private Casilla[][] casillas;
@@ -126,22 +127,26 @@ public class Tablero {
         }
     }
 
-    //Con este metodo mostramos el tablero en formato texto
-    public void mostrarTablero() {
+    //Con este metodo mostramos el tablero en formato texto y asi poderlo insertar en el fichero txt de la info Partidas
+    public String mostrarTablero() {
+        String tablero = "TABLERO\n";
+        
         for (int i = 0; i < casillas.length; i++) {
             for (int j = 0; j < casillas[i].length; j++) {
                 if (casillas[i][j].getSimbolo_oculto() == "*") {
-                    System.out.print("*");
+                    tablero = tablero + "*";
                 } else { 
                     if (casillas[i][j].getNumeroMinasAdyacentes() == 0) {
-                        System.out.print(" ");
+                        tablero = tablero + "B";
                     } else {
-                        System.out.print(casillas[i][j].getNumeroMinasAdyacentes());
+                        tablero = tablero + String.valueOf(casillas[i][j].getNumeroMinasAdyacentes());
                     }
                 }
             }
-            System.out.println();
+            tablero = tablero + "\n";
         }
+        
+        return tablero;
     }
     
     //Setter del Consumer de minas

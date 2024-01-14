@@ -1,11 +1,12 @@
 package buscaminas;
 
-public class Partida {
+import java.io.Serializable;
+
+public class Partida implements Serializable {
     
     private Jugador jugador_actual;
     private Jugador jugador_esperando;
-    private boolean turno;
-    
+    private boolean turno;    
 
     public Partida(Jugador jugador_actual, Jugador jugador_esperando) {
         this.jugador_actual = jugador_actual;
@@ -26,7 +27,7 @@ public class Partida {
 
     public void setJugador_esperando(Jugador jugador_esperando) {
         this.jugador_esperando = jugador_esperando;
-    }
+    }    
 
     public boolean getTurno() {
         return turno;
@@ -36,18 +37,8 @@ public class Partida {
         this.turno = turno;
     }
     
-    public void info_partida(Marcador marcador) {        
-        int marcadorJugador1 = marcador.getPuntos_J1();               
-        int marcadorJugador2 = marcador.getPuntos_J2();
-    }
-    
     //Con este metodo se inicializa la partida y asigna el turno al juador local
-    public void jugar() {
-        Marcador marcador = new Marcador(0, 0);
-        
-        marcador.setPuntos_J1(0);
-        marcador.setPuntos_J2(0);
-        
+    public void jugar() {        
         turno = true;
     }
     

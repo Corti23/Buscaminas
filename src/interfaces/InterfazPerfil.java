@@ -203,7 +203,7 @@ public class InterfazPerfil extends javax.swing.JFrame {
     private void comparar_rivalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comparar_rivalActionPerformed
         String nombre = JOptionPane.showInputDialog("Introduce el nombre del jugador:");
         
-        if (almacen_Usuarios.existe(new Jugador(nombre, "")) && nombre != null && !nombre1.equals(nombre)) {
+        if (almacen_Estadisticas.existe(new Estadisticas(nombre, 0, 0, 0, 0, 0)) && nombre != null && !nombre1.equals(nombre)) {
             InterfazPerfilRival interfazPerfilRival = new InterfazPerfilRival();
             interfazPerfilRival.setVisible(true);
             interfazPerfilRival.escribirJugador1(nombre1, password1);

@@ -149,6 +149,8 @@ public class InterfazElegirRival extends javax.swing.JFrame {
     private void salirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMousePressed
         interfazJugador = new InterfazJugador();
         interfazJugador.setVisible(true);
+        interfazJugador.insertarJugador(nombre1, password1);
+        
         this.setVisible(false);
     }//GEN-LAST:event_salirMousePressed
 

@@ -82,37 +82,6 @@ public class InterfazPerfilRival extends javax.swing.JFrame {
         perdidasJ2.setBackground(new Color(255, 102, 102));
         minas_encontradasJ2.setBackground(new Color(255, 102, 102));
         minas_rivalJ2.setBackground(new Color(255, 102, 102));
-        /*if (Integer.parseInt(ganadasJ1.getText()) > Integer.parseInt(ganadasJ2.getText())) {
-            ganadasJ1.setBackground(Color.green);
-            ganadasJ2.setBackground(Color.red);
-        } else if (Integer.parseInt(ganadasJ1.getText()) < Integer.parseInt(ganadasJ2.getText())) {
-            ganadasJ2.setBackground(Color.green);
-            ganadasJ1.setBackground(Color.red);
-        }
-        
-        if (Integer.parseInt(perdidasJ1.getText()) > Integer.parseInt(perdidasJ2.getText())) {
-            perdidasJ1.setBackground(Color.green);
-            perdidasJ2.setBackground(Color.red);
-        } else if (Integer.parseInt(perdidasJ1.getText()) < Integer.parseInt(perdidasJ2.getText())) {
-            perdidasJ2.setBackground(Color.green);
-            perdidasJ1.setBackground(Color.red);
-        }
-        
-        if (Integer.parseInt(minas_encontradasJ1.getText()) > Integer.parseInt(minas_encontradasJ2.getText())) {
-            minas_encontradasJ1.setBackground(Color.green);
-            minas_encontradasJ2.setBackground(Color.red);
-        } else if (Integer.parseInt(minas_encontradasJ1.getText()) < Integer.parseInt(minas_encontradasJ2.getText())) {
-            minas_encontradasJ2.setBackground(Color.green);
-            minas_encontradasJ1.setBackground(Color.red);
-        }
-        
-        if (Integer.parseInt(minas_rivalJ1.getText()) > Integer.parseInt(minas_rivalJ2.getText())) {
-            minas_rivalJ1.setBackground(Color.green);
-            minas_rivalJ2.setBackground(Color.red);
-        } else if (Integer.parseInt(minas_rivalJ1.getText()) < Integer.parseInt(minas_rivalJ2.getText())) {
-            minas_rivalJ2.setBackground(Color.green);
-            minas_rivalJ1.setBackground(Color.red);
-        }*/
     }
 
     @SuppressWarnings("unchecked")

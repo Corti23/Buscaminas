@@ -1,13 +1,17 @@
 package buscaminas;
 
-public class Movimiento {
+import java.io.Serializable;
+
+public class Movimiento implements Serializable {
     
     private String nombreJugador;
     private int coordenadaX;
     private int coordenadaY;
 
-    public Movimiento(String nombreJugador) {
+    public Movimiento(String nombreJugador, int coordenadaX, int coordenadaY) {
         this.nombreJugador = nombreJugador;
+        this.coordenadaX = coordenadaX;
+        this.coordenadaY = coordenadaY;
     }
 
     public String getNombreJugador() {

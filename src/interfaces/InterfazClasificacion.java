@@ -41,13 +41,13 @@ public class InterfazClasificacion extends javax.swing.JFrame {
     }
     
     public void insertarClasificacionNombre() {
-        ArrayList<Jugador> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
+        ArrayList<Estadisticas> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
         ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
         
-        for (Jugador jugador : listaOrdenadaNombre) {
+        for (Estadisticas jugador : listaOrdenadaNombre) {
             for (Estadisticas estadistica : listaEstadisticas) {
-                if (estadistica.getNombreJugador().equals(jugador.getNombre())) {
-                    modeloNombre.addRow(new Object[]{jugador.getNombre(), estadistica.getJugadas(), estadistica.getGanadas(), estadistica.getPerdidas(), estadistica.getMinas_a_favor(), estadistica.getMinas_en_contra()});
+                if (estadistica.getNombreJugador().equals(jugador.getNombreJugador())) {
+                    modeloNombre.addRow(new Object[]{jugador.getNombreJugador(), estadistica.getJugadas(), estadistica.getGanadas(), estadistica.getPerdidas(), estadistica.getMinas_a_favor(), estadistica.getMinas_en_contra()});
                 }
             }
         }
@@ -55,12 +55,12 @@ public class InterfazClasificacion extends javax.swing.JFrame {
     
     public void insertarClasificacionVictorias() {
         ArrayList<Estadisticas> listaOrdenadaVictorias = almacen_Usuarios.clasificacionPorVictorias();
-        ArrayList<Jugador> listaJugadores = almacen_Usuarios.getDatos();
+        ArrayList<Estadisticas> listaEstadisticas = almacen_Estadisticas.getDatos();
         
         for (Estadisticas estadistica : listaOrdenadaVictorias) {
-            for (Jugador jugador : listaJugadores) {
-                if (jugador.getNombre().equals(estadistica.getNombreJugador())) {
-                    modeloVictorias.addRow(new Object[]{jugador.getNombre(), estadistica.getJugadas(), estadistica.getGanadas(), estadistica.getPerdidas(), estadistica.getMinas_a_favor(), estadistica.getMinas_en_contra()});
+            for (Estadisticas jugador : listaEstadisticas) {
+                if (jugador.getNombreJugador().equals(estadistica.getNombreJugador())) {
+                    modeloVictorias.addRow(new Object[]{jugador.getNombreJugador(), estadistica.getJugadas(), estadistica.getGanadas(), estadistica.getPerdidas(), estadistica.getMinas_a_favor(), estadistica.getMinas_en_contra()});
                 }
             }
         }

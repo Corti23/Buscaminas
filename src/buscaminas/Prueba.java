@@ -10,8 +10,9 @@ public class Prueba {
             Almacen_Usuarios almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
             Almacen_Estadisticas almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
             Almacen_ComprobarRival almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
+            Almacen_Partidas almacen_Partidas = new Almacen_Partidas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoPartidas.txt");
             
-            ArrayList<Jugador> listaJugadores = almacen_Usuarios.getDatos();
+            /*ArrayList<Jugador> listaJugadores = almacen_Usuarios.getDatos();
             
             for (Jugador jugador : listaJugadores) {
                 jugador.mostrarJugador();
@@ -21,7 +22,7 @@ public class Prueba {
             
             for (Estadisticas estadisticas : listaEstadisticas) {
                 estadisticas.mostrarEstadisticas();
-            }
+            }*/
             
             /*ArrayList<Jugador> listaOrdenadaNombre = almacen_Usuarios.clasificacionPorNombre();
             
@@ -29,10 +30,16 @@ public class Prueba {
                 jugador.mostrarJugador();
             }*/
             
-            ArrayList<Estadisticas> listaComprobarRival = almacen_ComprobarRival.getDatos();
+            /*ArrayList<Estadisticas> listaComprobarRival = almacen_ComprobarRival.getDatos();
             
             for (Estadisticas estadisticas : listaComprobarRival) {
                 estadisticas.mostrarEstadisticas();
+            }*/
+            
+            ArrayList<InfoPartidas> listaInfoPartidas = almacen_Partidas.getDatos();
+            
+            for (InfoPartidas partidas : listaInfoPartidas) {
+                partidas.mostrarEstadisticas();
             }
             
             /*Usuario usuario = new Usuario("Pepe", "12345");
