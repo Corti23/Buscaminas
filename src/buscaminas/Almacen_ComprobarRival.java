@@ -49,25 +49,6 @@ public class Almacen_ComprobarRival {
         }
     }
     
-    /*public void borrarEstadisticasRival(Estadisticas estadisticas) throws IOException, ClassNotFoundException { 
-        ArrayList<Estadisticas> copiaDatos = new ArrayList<>();
-        
-        for (Estadisticas dato : datos) {
-            if (!dato.getNombreJugador().equals(estadisticas.getNombreJugador())) {
-                copiaDatos.add(dato);
-            }
-        }
-        
-        datos = new ArrayList<>();      
-        
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(fichero));
-        objectOutputStream.writeBytes("");
-        
-        for (Estadisticas j : copiaDatos) {
-            crearEstadisticasRival(j);
-        }
-    }*/
-    
     //Con este metodo leemos el fichero de almacen ComprobarRival
     public void leerDatos() {
         if (fichero.exists()) {

@@ -27,23 +27,43 @@ public class Almacen_Partidas {
     
     //Con este metodo almacenamos la informacion de una partida y la añadimos al fichero correspondiente de almacen Partidas
     public void almacenarPartida(InfoPartidas partida) throws IOException {
+        String id = String.valueOf(partida.getIdPartida());
+        String jugador1 = partida.getJugador_actual();
+        String jugador2 = partida.getJugador_esperando();
+        String marcadorJ1 = String.valueOf(partida.getMarcadorJ1());
+        String marcadorJ2 = String.valueOf(partida.getMarcadorJ2());
+        String tablero = partida.getTablero();
+        String movimientos = partida.getMovimientos();
+        
         if (fichero.exists() && fichero.length() > 0) {
             try {
-                MiObjectOutputStream miObjectOutputStream = new MiObjectOutputStream(new FileOutputStream(fichero, true));
+                FileWriter fileWriter = new FileWriter(fichero, true);
 
-                miObjectOutputStream.writeObject(partida);
+                fileWriter.write(id + "#");
+                fileWriter.write(jugador1 + "#");
+                fileWriter.write(jugador2 + "#");
+                fileWriter.write(marcadorJ1 + "#");
+                fileWriter.write(marcadorJ2 + "#");
+                fileWriter.write(tablero + "#");
+                fileWriter.write(movimientos + "#\n");                
                 datos.add(partida);
+                fileWriter.close();
             } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());
             }
         } else {
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoPartidas.txt");
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+                FileWriter fileWriter = new FileWriter(fichero);
 
-                objectOutputStream.writeObject(partida);
+                fileWriter.write(id + "#");
+                fileWriter.write(jugador1 + "#");
+                fileWriter.write(jugador2 + "#");
+                fileWriter.write(marcadorJ1 + "#");
+                fileWriter.write(marcadorJ2 + "#");
+                fileWriter.write(tablero + "#");
+                fileWriter.write(movimientos + "#\n");
                 datos.add(partida);
-                objectOutputStream.close();
+                fileWriter.close();
             }  catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());
             }
@@ -53,22 +73,37 @@ public class Almacen_Partidas {
     //Con este metodo leemos el fichero de almacen Partidas
     public void leerDatos() {
         if (fichero.exists()) {
-            InfoPartidas partida;
-            
             try {
-                FileInputStream fileInputStream = new FileInputStream(fichero);
-                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-
-                while (true) {
-                    partida = (InfoPartidas) objectInputStream.readObject();
-                    datos.add(partida);
+                FileReader fileReader = new FileReader(fichero);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                
+                String texto = new String();
+                int idPartida;
+                String jugador1;
+                String jugador2;
+                int marcador1;
+                int marcador2;
+                String tablero;
+                String movimientos;
+                
+                while ((texto = bufferedReader.readLine()) != null) {
+                    String[] contenidoTXT = texto.split("#");
+                    idPartida = Integer.parseInt(contenidoTXT[0]);
+                    jugador1 = contenidoTXT[1];
+                    jugador2 = contenidoTXT[2];
+                    marcador1 = Integer.parseInt(contenidoTXT[3]);
+                    marcador2 = Integer.parseInt(contenidoTXT[4]);
+                    tablero = contenidoTXT[5];
+                    movimientos = contenidoTXT[6];
+                    InfoPartidas infoPartidas = new InfoPartidas(jugador1, jugador2, idPartida, marcador1, marcador2, tablero, movimientos);
+                    datos.add(infoPartidas);
                 }
+                
+                bufferedReader.close();
             } catch (EOFException e) {
             } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());
-            } catch (ClassNotFoundException e) {
-                System.out.println("Error: " + e.getMessage());
-            } 
+            }
         }
     }
     
@@ -84,7 +119,33 @@ public class Almacen_Partidas {
     }    
     
     //Con este metodo abrimos un el fichero donde se almacenan todos los datos de las partidas
-    public void mostrarTableroYMovimientos() throws IOException {
-        Desktop.getDesktop().open(fichero);
+    public void mostrarTableroYMovimientos(ArrayList<InfoPartidas> info) throws IOException {
+        FileWriter fileWriter = new FileWriter("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoTablerosMovimientos.txt");
+            
+        for (InfoPartidas partidas : info) {
+            fileWriter.write("PARTIDA " + String.valueOf(partidas.getIdPartida()) + "\n");
+            
+            fileWriter.write("TABLERO\n");
+            
+            String[] tableroCompleto = partidas.getTablero().split(" ");
+            
+            for (String tablero :  tableroCompleto) {
+                fileWriter.write(tablero + "\n");
+            }
+            
+            fileWriter.write("MOVIMIENTOS\n");
+            
+            String[] movimientosCompletos = partidas.getMovimientos().split(" / ");
+            
+            for (String movimientos :  movimientosCompletos) {
+                fileWriter.write(movimientos + "\n");
+            }
+            
+            fileWriter.write("\n");
+        }
+        
+        fileWriter.close();
+        
+        Desktop.getDesktop().open(new File("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoTablerosMovimientos.txt"));
     }
 }

@@ -3,6 +3,7 @@ package buscaminas;
 import java.io.*;
 import java.util.ArrayList;
 
+//Clase en la cual hemos realizado pruebas para comprobar que hacian los metodos y obtener el resultado de dichas operaciones
 public class Prueba {
     
     public static void main(String[] args) {        

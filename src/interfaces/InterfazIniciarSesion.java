@@ -242,7 +242,6 @@ public class InterfazIniciarSesion extends javax.swing.JFrame {
         if (almacen_Usuarios.autenticar(jugador)) {
             InterfazJugador interfazJugador = new InterfazJugador();
             interfazJugador.setVisible(true);
-            
             interfazJugador.insertarJugador(jugador.getNombre(), jugador.getPassword());
             
             this.setVisible(false);

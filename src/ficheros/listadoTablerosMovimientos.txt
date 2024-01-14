@@ -1,0 +1,538 @@
+PARTIDA 1
+TABLERO
+BB13**2**3***111
+BB1**4323*34321*
+BB134*1B2221*111
+11B1*21B1*111111
+*1B111BB1221BB1*
+2221111113*2BB11
+1*2*11*11**2111B
+1121222223211*1B
+BBBB1*22*1BB1121
+111B234*32111B1*
+1*223**3*11*2233
+222**3332234*2**
+*234422*11**2222
+23**2*2111332BBB
+1*43211B123*1111
+12*1BBBB1**211*1
+MOVIMIENTOS
+Victor 0 0
+David 4 0
+David 5 0
+Victor 6 0
+David 6 1
+David 6 2
+Victor 6 3
+Victor 6 4
+David 5 4
+Victor 4 4
+David 3 4
+David 2 4
+Victor 1 4
+Victor 0 4
+Victor 0 3
+David 1 3
+David 0 5
+David 1 5
+Victor 2 5
+Victor 3 5
+David 4 5
+Victor 5 5
+David 6 5
+Victor 6 6
+Victor 6 7
+David 6 8
+Victor 6 9
+Victor 6 10
+Victor 6 11
+David 6 12
+Victor 6 13
+David 6 14
+Victor 6 15
+David 4 15
+David 4 14
+Victor 4 13
+David 2 13
+Victor 3 15
+David 2 15
+Victor 2 14
+David 1 15
+David 1 14
+Victor 1 13
+David 1 11
+Victor 2 11
+David 2 12
+David 0 13
+Victor 1 12
+David 0 9
+Victor 1 9
+Victor 1 10
+David 0 12
+David 0 11
+David 0 10
+David 2 10
+Victor 0 14
+David 0 15
+Victor 2 9
+David 3 9
+David 4 9
+Victor 5 9
+David 5 10
+David 4 10
+Victor 3 10
+David 0 8
+David 1 8
+Victor 2 8
+David 3 8
+Victor 4 8
+David 5 8
+Victor 5 7
+David 5 6
+Victor 4 6
+David 10 5
+David 0 6
+Victor 0 7
+Victor 7 4
+David 7 5
+Victor 7 6
+David 7 7
+Victor 8 6
+David 9 6
+Victor 9 7
+Victor 8 7
+David 7 8
+Victor 8 8
+Victor 9 8
+David 9 9
+Victor 9 10
+David 9 11
+Victor 9 12
+David 9 13
+Victor 9 15
+Victor 10 15
+David 7 12
+Victor 7 13
+Victor 7 11
+David 8 11
+Victor 8 4
+David 9 4
+Victor 8 5
+Victor 9 5
+David 10 6
+David 10 7
+Victor 10 8
+Victor 10 9
+David 10 10
+Victor 10 11
+Victor 7 0
+David 8 0
+Victor 10 0
+David 10 1
+David 11 0
+Victor 11 1
+David 11 2
+Victor 11 3
+Victor 11 4
+Victor 11 5
+David 11 6
+Victor 11 7
+David 11 8
+Victor 11 9
+David 11 10
+Victor 11 11
+David 11 12
+David 11 13
+Victor 11 14
+Victor 11 15
+Victor 12 15
+David 12 14
+Victor 12 13
+David 12 12
+Victor 12 11
+Victor 12 9
+David 12 7
+David 12 10
+David 12 8
+Victor 12 6
+David 12 5
+Victor 12 4
+David 12 3
+Victor 12 2
+David 12 1
+Victor 12 0
+Victor 13 0
+David 13 1
+Victor 13 2
+Victor 13 3
+Victor 13 4
+David 13 5
+David 13 6
+Victor 13 7
+David 13 8
+Victor 13 9
+David 13 10
+Victor 13 11
+David 13 12
+Victor 13 13
+David 14 10
+Victor 14 11
+Victor 14 9
+David 14 8
+Victor 14 7
+David 14 2
+Victor 14 1
+
+PARTIDA 2
+TABLERO
+1*321B111BBB111B
+12**1B1*1BBB1*1B
+B13431112121211B
+BB1**31B2*4*311B
+BB13**1B2*4*3*21
+BB12432B113354*1
+113*3*21BB1***21
+1*4*43*1BB12321B
+23*22*21BB111BBB
+3*543321BB1*1BBB
+*****3*31111211B
+*43335*4*2212*1B
+22213**42*2*211B
+2*3*3**3213331BB
+2*32333*212**1BB
+1111*1112*2221BB
+MOVIMIENTOS
+Victor 0 0
+Marco 1 0
+Victor 2 0
+Marco 7 0
+Victor 8 0
+Marco 9 0
+Victor 10 0
+Victor 11 0
+Victor 12 0
+Marco 13 0
+Victor 14 0
+Marco 15 0
+Victor 7 2
+Marco 7 1
+Marco 8 1
+Victor 8 2
+Victor 9 2
+Marco 9 1
+Marco 10 2
+Marco 10 1
+Marco 11 1
+Victor 11 2
+Marco 12 2
+Victor 12 1
+Marco 13 1
+Marco 13 2
+Victor 14 2
+Marco 14 1
+Marco 15 1
+Victor 15 2
+Marco 0 2
+Victor 1 2
+Victor 0 1
+Victor 0 3
+Marco 2 3
+Victor 1 3
+Victor 3 3
+Victor 2 4
+Marco 3 4
+Marco 1 4
+Victor 0 4
+Marco 4 3
+Victor 5 3
+Marco 6 3
+Marco 7 3
+Marco 8 3
+Victor 9 3
+Marco 10 3
+Marco 11 3
+Victor 12 3
+Marco 13 3
+Marco 14 3
+Victor 15 3
+Marco 4 4
+Marco 5 4
+Victor 6 4
+Marco 7 4
+Victor 8 4
+Marco 9 4
+Victor 10 4
+Victor 11 4
+Marco 12 4
+Victor 13 4
+Marco 14 4
+Victor 15 4
+Victor 0 5
+Marco 3 5
+Victor 3 6
+Marco 4 5
+Marco 4 6
+Victor 5 5
+Marco 5 6
+Victor 6 5
+Victor 6 6
+Marco 7 5
+Victor 7 6
+Victor 8 5
+Victor 8 6
+Marco 9 5
+Victor 9 6
+Marco 10 5
+Victor 10 6
+Victor 11 5
+Marco 11 6
+Marco 12 5
+Marco 12 6
+Marco 13 6
+Marco 13 5
+Marco 14 5
+Victor 14 6
+Marco 15 6
+Victor 15 5
+Marco 0 7
+Victor 0 8
+Marco 0 9
+Victor 1 7
+Victor 2 7
+Marco 3 7
+Victor 3 9
+Victor 4 9
+Victor 3 10
+Marco 4 10
+Victor 3 11
+Victor 4 11
+Victor 5 11
+Marco 6 11
+Marco 7 11
+Victor 8 11
+Marco 9 11
+Marco 10 11
+Victor 3 12
+Marco 4 12
+Victor 5 12
+Marco 6 12
+Marco 7 12
+Victor 8 12
+Marco 9 12
+Victor 10 12
+Marco 0 13
+Victor 2 13
+Marco 1 13
+Marco 3 13
+Victor 4 13
+Victor 5 13
+Marco 6 13
+Marco 7 13
+Victor 8 13
+Marco 11 13
+Marco 5 15
+Victor 5 14
+Victor 4 14
+Marco 4 15
+Victor 3 15
+Marco 11 7
+Victor 12 7
+Marco 13 7
+Victor 14 7
+Victor 15 7
+Marco 15 8
+Victor 14 8
+Marco 13 8
+Victor 12 8
+Marco 11 8
+Marco 11 9
+Victor 12 9
+Victor 14 9
+Marco 13 9
+Victor 15 9
+Victor 15 10
+Marco 14 10
+Victor 13 10
+Marco 12 10
+Victor 11 10
+Marco 11 11
+Victor 12 11
+Victor 13 11
+Marco 14 11
+
+PARTIDA 3
+TABLERO
+BB1*1BBBBB111B1*
+11111B11212*1122
+*311BB1*2*2111*2
+*3*21B11322B135*
+122*1BBB2*2B1***
+11211BBB2*3113*3
+2*31BBBB23*1B111
+3**2111B1*21B111
+2**21*11221123*1
+23323221*212**42
+*12*3*1224*33**2
+223*3222*3*2123*
+2*3111*333211121
+2*21133*2*1B1*1B
+2333*3*22111221B
+1**3*311BBB1*1BB
+MOVIMIENTOS
+Marco 0 0
+David 0 4
+Marco 0 3
+Marco 1 3
+David 1 4
+Marco 0 5
+David 2 7
+David 2 8
+Marco 2 9
+Marco 2 10
+David 2 11
+Marco 1 11
+Marco 0 11
+David 3 9
+Marco 4 9
+Marco 5 9
+Marco 6 9
+David 7 9
+David 8 9
+Marco 8 5
+Marco 8 4
+David 8 3
+Marco 8 2
+Marco 7 2
+Marco 6 2
+David 5 2
+Marco 4 2
+David 4 3
+David 3 2
+David 2 2
+Marco 2 0
+Marco 2 1
+David 3 0
+David 3 1
+Marco 4 0
+David 4 1
+Marco 5 0
+David 6 0
+Marco 7 0
+David 8 0
+Marco 8 1
+Marco 7 1
+Marco 6 1
+Marco 5 1
+David 3 11
+Marco 6 10
+Marco 7 10
+David 8 10
+Marco 6 11
+David 7 11
+Marco 8 11
+David 6 12
+Marco 1 13
+David 2 13
+Marco 3 13
+David 4 13
+David 0 12
+Marco 1 12
+David 0 13
+Marco 0 15
+Marco 1 15
+David 2 14
+David 2 15
+Marco 3 14
+David 3 15
+David 4 14
+David 7 15
+Marco 4 15
+Marco 5 14
+Marco 5 15
+David 6 14
+Marco 6 15
+David 7 14
+Marco 8 14
+Marco 8 15
+David 9 0
+Marco 9 1
+David 9 2
+Marco 9 3
+David 9 4
+Marco 9 5
+David 9 6
+Marco 9 7
+David 9 8
+David 9 9
+Marco 9 10
+David 9 11
+Marco 9 12
+Marco 9 13
+Marco 9 14
+David 9 15
+Marco 10 15
+David 10 14
+David 10 13
+David 10 12
+Marco 10 11
+David 10 10
+David 10 9
+Marco 10 8
+David 10 7
+Marco 10 6
+David 10 5
+David 10 4
+Marco 10 3
+Marco 10 2
+David 10 1
+Marco 10 0
+Marco 11 0
+David 11 1
+Marco 11 2
+David 11 3
+David 11 4
+Marco 11 5
+David 11 6
+Marco 11 7
+David 11 8
+David 11 9
+Marco 11 10
+Marco 11 11
+David 11 12
+Marco 11 13
+David 11 14
+Marco 11 15
+Marco 12 15
+David 12 14
+Marco 12 13
+David 12 12
+Marco 12 11
+David 12 10
+Marco 12 9
+David 12 8
+Marco 12 7
+David 12 6
+David 12 5
+Marco 12 4
+David 12 3
+Marco 12 2
+David 12 1
+David 12 0
+Marco 13 0
+David 13 1
+David 13 2
+Marco 13 3
+David 13 4
+Marco 13 5
+David 13 6
+Marco 13 7
+Marco 13 8
+David 13 9
+David 13 10
+Marco 13 11
+David 13 14
+Marco 13 13
+Marco 13 15
+David 15 10
+Marco 15 12
+

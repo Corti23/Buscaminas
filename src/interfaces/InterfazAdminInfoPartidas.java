@@ -180,7 +180,8 @@ public class InterfazAdminInfoPartidas extends javax.swing.JFrame {
 
     private void mostrarTablero_MovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTablero_MovimientosActionPerformed
         try {
-            almacen_Partidas.mostrarTableroYMovimientos();
+            ArrayList<InfoPartidas> listaPartidas = almacen_Partidas.getDatos();
+            almacen_Partidas.mostrarTableroYMovimientos(listaPartidas);
         } catch (IOException e) {
             System.out.println("ERROR, " + e.getMessage());
         }

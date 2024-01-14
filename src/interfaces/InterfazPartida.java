@@ -24,8 +24,8 @@ public class InterfazPartida extends javax.swing.JFrame {
     Marcador marcador;
     Movimiento movimiento;
     
-    String tableroDescubierto;
-    String movimientosPartida;
+    String tableroDescubierto = "";
+    String movimientosPartida = "";
     
     Almacen_Partidas almacen_Partidas;
     Almacen_Estadisticas almacen_Estadisticas;
@@ -89,7 +89,7 @@ public class InterfazPartida extends javax.swing.JFrame {
                     marcador.setPuntos_J1(marcador1);
                     marcador_J1.setText(String.valueOf(marcador.getPuntos_J1()));
                     
-                    movimientosPartida = movimientosPartida + jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n";
+                    movimientosPartida = movimientosPartida + jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + " / ";
                     movimientosJ1.append(jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n");
                     
                     if (marcador.getPuntos_J1() == 26) {
@@ -141,7 +141,7 @@ public class InterfazPartida extends javax.swing.JFrame {
                     marcador.setPuntos_J2(marcador2);
                     marcador_J2.setText(String.valueOf(marcador.getPuntos_J2()));
                     
-                    movimientosPartida = movimientosPartida + jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n";
+                    movimientosPartida = movimientosPartida + jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + " / ";
                     movimientosJ2.append(jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n");
                     
                     if (marcador.getPuntos_J2() == 26) {
@@ -200,9 +200,9 @@ public class InterfazPartida extends javax.swing.JFrame {
                     
                     if ((t.getSimbolo_oculto()).equals("B") && contador == 0) {
                         if (partida.getTurno()) {
-                            movimientosPartida = movimientosPartida + jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n";
+                            movimientosPartida = movimientosPartida + jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + " / ";
                         } else {
-                            movimientosPartida = movimientosPartida + jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n";
+                            movimientosPartida = movimientosPartida + jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + " / ";
                         }
                         
                         contador++;
@@ -241,9 +241,9 @@ public class InterfazPartida extends javax.swing.JFrame {
                                       
                     if ((t.getSimbolo_oculto()).equals("N") && contador == 0) {
                         if (partida.getTurno()) {
-                            movimientosPartida = movimientosPartida + jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n";
+                            movimientosPartida = movimientosPartida + jugador1.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + " / ";
                         } else {
-                            movimientosPartida = movimientosPartida + jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + "\n";
+                            movimientosPartida = movimientosPartida + jugador2.getText() + " " + t.getCoordenadaX() + " " + t.getCoordenadaY() + " / ";
                         }
                         
                         partida.cambiarTurno();

@@ -172,7 +172,9 @@ public class InterfazAdmin extends javax.swing.JFrame {
             }
             
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("ERROR: " + e.getMessage());
         }
     }//GEN-LAST:event_altaActionPerformed
 
@@ -195,9 +197,11 @@ public class InterfazAdmin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "ERROR, el jugador no estaba registrado, prueba con otro.");
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("ERROR: " + e.getMessage());
         }
     }//GEN-LAST:event_bajaActionPerformed
 
@@ -232,6 +236,8 @@ public class InterfazAdmin extends javax.swing.JFrame {
         try {
             almacen_Usuarios.cargarListado(new File(fichero));
         } catch (IOException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        } catch (NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }//GEN-LAST:event_altaFicheroMousePressed

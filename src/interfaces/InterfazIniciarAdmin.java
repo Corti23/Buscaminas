@@ -150,7 +150,6 @@ public class InterfazIniciarAdmin extends javax.swing.JFrame {
         if (almacen_Usuarios.autenticar(admin)) {
             InterfazAdmin interfazAdmin = new InterfazAdmin();
             interfazAdmin.setVisible(true);
-            
             interfazAdmin.insertarAdmin(admin.getNombre(), admin.getPassword());
             
             this.setVisible(false);

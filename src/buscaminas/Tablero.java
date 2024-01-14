@@ -129,7 +129,7 @@ public class Tablero implements Serializable {
 
     //Con este metodo mostramos el tablero en formato texto y asi poderlo insertar en el fichero txt de la info Partidas
     public String mostrarTablero() {
-        String tablero = "TABLERO\n";
+        String tablero = "";
         
         for (int i = 0; i < casillas.length; i++) {
             for (int j = 0; j < casillas[i].length; j++) {
@@ -143,7 +143,7 @@ public class Tablero implements Serializable {
                     }
                 }
             }
-            tablero = tablero + "\n";
+            tablero = tablero + " ";
         }
         
         return tablero;
