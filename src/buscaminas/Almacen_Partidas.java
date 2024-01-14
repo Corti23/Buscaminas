@@ -120,7 +120,7 @@ public class Almacen_Partidas {
     
     //Con este metodo abrimos un el fichero donde se almacenan todos los datos de las partidas
     public void mostrarTableroYMovimientos(ArrayList<InfoPartidas> info) throws IOException {
-        FileWriter fileWriter = new FileWriter("listadoTablerosMovimientos.txt");
+        FileWriter fileWriter = new FileWriter("src/ficheros/listadoTablerosMovimientos.txt");
             
         for (InfoPartidas partidas : info) {
             fileWriter.write("PARTIDA " + String.valueOf(partidas.getIdPartida()) + "\n");
@@ -146,6 +146,6 @@ public class Almacen_Partidas {
         
         fileWriter.close();
         
-        Desktop.getDesktop().open(new File("listadoTablerosMovimientos.txt"));
+        Desktop.getDesktop().open(new File("src/ficheros/listadoTablerosMovimientos.txt"));
     }
 }

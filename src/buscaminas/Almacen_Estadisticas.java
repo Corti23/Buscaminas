@@ -37,7 +37,7 @@ public class Almacen_Estadisticas {
             }
         } else {
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream("listadoEstadisticas.ser");
+                FileOutputStream fileOutputStream = new FileOutputStream("src/ficheros/listadoEstadisticas.ser");
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
                 objectOutputStream.writeObject(estadisticas);

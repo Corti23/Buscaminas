@@ -38,9 +38,9 @@ public class InterfazPartida extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Partidas = new Almacen_Partidas("listadoPartidas.txt");
-        almacen_Estadisticas = new Almacen_Estadisticas("listadoEstadisticas.ser");
-        almacen_ComprobarRival = new Almacen_ComprobarRival("listadoEstadisticasRivales.ser");
+        almacen_Partidas = new Almacen_Partidas("src/ficheros/listadoPartidas.txt");
+        almacen_Estadisticas = new Almacen_Estadisticas("src/ficheros/listadoEstadisticas.ser");
+        almacen_ComprobarRival = new Almacen_ComprobarRival("src/ficheros/listadoEstadisticasRivales.ser");
         
         crearCasillas();
         crearTablero();

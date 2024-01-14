@@ -14,7 +14,7 @@ public class InterfazIniciarSesion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Usuarios = new Almacen_Usuarios("listadoJugadores.ser");
+        almacen_Usuarios = new Almacen_Usuarios("src/ficheros/listadoJugadores.ser");
         
         ajustarImagen(jLabel2, "src/img/usuario.png");
     }
