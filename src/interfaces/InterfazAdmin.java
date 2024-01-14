@@ -21,9 +21,9 @@ public class InterfazAdmin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
-        almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
-        almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
+        almacen_Usuarios = new Almacen_Usuarios("ficheros\\listadoJugadores.ser");
+        almacen_Estadisticas = new Almacen_Estadisticas("ficheros\\listadoEstadisticas.ser");
+        almacen_ComprobarRival = new Almacen_ComprobarRival("ficheros\\listadoEstadisticasRivales.ser");
     }
     
     public void insertarAdmin(String nombre, String password) {

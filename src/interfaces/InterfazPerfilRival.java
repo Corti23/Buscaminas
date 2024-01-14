@@ -14,8 +14,8 @@ public class InterfazPerfilRival extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
-        almacen_ComprobarRival = new Almacen_ComprobarRival("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticasRivales.ser");
+        almacen_Usuarios = new Almacen_Usuarios("ficheros\\listadoJugadores.ser");
+        almacen_ComprobarRival = new Almacen_ComprobarRival("ficheros\\listadoEstadisticasRivales.ser");
     }
     
     public void escribirJugador1(String nombre, String password) {

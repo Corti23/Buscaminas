@@ -19,7 +19,7 @@ public class InterfazAdminInfoPartidas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Partidas = new Almacen_Partidas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoPartidas.txt");
+        almacen_Partidas = new Almacen_Partidas("ficheros\\listadoPartidas.txt");
         
         jScrollPane.getViewport().setBackground(Color.black);
         

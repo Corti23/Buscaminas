@@ -20,8 +20,8 @@ public class InterfazClasificacion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        almacen_Usuarios = new Almacen_Usuarios("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoJugadores.ser");
-        almacen_Estadisticas = new Almacen_Estadisticas("C:\\Users\\vcald\\Documents\\Buscaminas\\src\\ficheros\\listadoEstadisticas.ser");
+        almacen_Usuarios = new Almacen_Usuarios("ficheros\\listadoJugadores.ser");
+        almacen_Estadisticas = new Almacen_Estadisticas("ficheros\\listadoEstadisticas.ser");
         
         jScrollPane1.getViewport().setBackground(Color.black);
         jScrollPane2.getViewport().setBackground(Color.black);
